@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="appia">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/appia.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
