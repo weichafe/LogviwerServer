@@ -31,13 +31,13 @@ public class CalculatePositions {
         String keyHashPositions = helper.adrToLocal(modelRoutingData.symbol);
 
 
-        if (algo.positionsMasterListHash.containsKey(keyHashPositions)) {
-            positions = algo.positionsMasterListHash.get(keyHashPositions);
+        if (algo.strategyDataVO.positionsMasterListHash.containsKey(keyHashPositions)) {
+            positions = algo.strategyDataVO.positionsMasterListHash.get(keyHashPositions);
 
         } else {
 
-            algo.positionsMasterListHash.put(keyHashPositions, new ModelPositions());
-            positions = algo.positionsMasterListHash.get(keyHashPositions);
+            algo.strategyDataVO.positionsMasterListHash.put(keyHashPositions, new ModelPositions());
+            positions = algo.strategyDataVO.positionsMasterListHash.get(keyHashPositions);
             positions.ratio = helper.ratio(keyHashPositions);
             positions.symbolLocal = keyHashPositions;
         }

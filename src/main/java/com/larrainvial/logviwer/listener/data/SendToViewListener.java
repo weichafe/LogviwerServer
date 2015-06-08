@@ -9,7 +9,6 @@ import com.larrainvial.trading.emp.Event;
 import com.larrainvial.trading.emp.Listener;
 
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Map;
 
@@ -24,9 +23,9 @@ public class SendToViewListener implements Listener {
 
             Algo algo = Repository.strategy.get(ev.nameAlgo);
 
-            if (ev.typeMarket.equals(algo.getMkd_dolar())) {
+            if (ev.typeMarket.equals(algo.strategyDataVO.mkd_dolar)) {
 
-                algo.dolarMasterList.add(ev.modelMarketData);
+                algo.strategyDataVO.dolarMasterListArray.add(ev.modelMarketData);
 
                 for (Map.Entry<String, Socket> e: Repository.cliente.entrySet()) {
 
@@ -41,31 +40,31 @@ public class SendToViewListener implements Listener {
                     }
                 }
 
-            }else if (ev.typeMarket.equals(algo.getMkd_adr())) {
-                algo.mkdAdrMasterList.add(ev.modelMarketData);
+            }else if (ev.typeMarket.equals(algo.strategyDataVO.mkd_adr)) {
+                algo.strategyDataVO.mkdAdrMasterListArray.add(ev.modelMarketData);
 
-            }else if (ev.typeMarket.equals(algo.getMkd_local())) {
-                algo.mkdLocalMasterList.add(ev.modelMarketData);
+            }else if (ev.typeMarket.equals(algo.strategyDataVO.mkd_local)) {
+                algo.strategyDataVO.mkdLocalMasterListArray.add(ev.modelMarketData);
 
-            }else if (ev.typeMarket.equals(algo.getRouting_adr())) {
-                algo.routingAdrMasterList.add(ev.modelRoutingData);
+            }else if (ev.typeMarket.equals(algo.strategyDataVO.routing_adr)) {
+                algo.strategyDataVO.routingAdrMasterListArray.add(ev.modelRoutingData);
 
-            }else if (ev.typeMarket.equals(algo.getRouting_local())) {
-                algo.routingLocalMasterList.add(ev.modelRoutingData);
+            }else if (ev.typeMarket.equals(algo.strategyDataVO.routing_local)) {
+                algo.strategyDataVO.routingLocalMasterListArray.add(ev.modelRoutingData);
             }
 
             if(!ev.marketData) return;
 
-            for (Map.Entry<String, ModelPositions> e: algo.positionsMasterListHash.entrySet()) {
+            for (Map.Entry<String, ModelPositions> e: algo.strategyDataVO.positionsMasterListHash.entrySet()) {
 
                 try {
 
-                    if (algo.positionsMasterListHash.containsKey(e.getKey())) {
+                    if (algo.strategyDataVO.positionsMasterListHash.containsKey(e.getKey())) {
 
                         if (e.getKey().equals(Helper.adrToLocal(ev.modelRoutingData.symbol))) {
 
-                            algo.positionsMasterList.remove(e.getKey());
-                            algo.positionsMasterList.add(algo.positionsMasterListHash.get(e.getKey()));
+                            algo.strategyDataVO.positionsMasterListArray.remove(e.getKey());
+                            algo.strategyDataVO.positionsMasterListArray.add(algo.strategyDataVO.positionsMasterListHash.get(e.getKey()));
                         }
                     }
 
