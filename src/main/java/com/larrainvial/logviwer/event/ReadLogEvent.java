@@ -11,7 +11,6 @@ public class ReadLogEvent extends Event {
     public String typeMarket;
     public FileInputStream inputStream;
 
-
     public ReadLogEvent(Object source, String nameAlgo, String typeMarket, FileInputStream inputStream) {
         super(source);
         this.nameAlgo = nameAlgo;

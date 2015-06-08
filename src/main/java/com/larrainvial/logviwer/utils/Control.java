@@ -3,7 +3,13 @@ package com.larrainvial.logviwer.utils;
 import com.larrainvial.logviwer.Algo;
 import com.larrainvial.logviwer.Repository;
 import com.larrainvial.logviwer.event.*;
-import com.larrainvial.logviwer.listener.*;
+import com.larrainvial.logviwer.listener.data.ReadLogListener;
+import com.larrainvial.logviwer.listener.data.SendToViewListener;
+import com.larrainvial.logviwer.listener.data.StringToFixMessageListener;
+import com.larrainvial.logviwer.listener.data.TriggerReadFileListener;
+import com.larrainvial.logviwer.listener.server.NewClienteListener;
+import com.larrainvial.logviwer.listener.server.SendDataToClientListener;
+import com.larrainvial.logviwer.listener.server.ServerListener;
 import com.larrainvial.trading.emp.Controller;
 
 import java.io.File;
@@ -19,9 +25,11 @@ public class Control {
         Controller.addEventListener(SendToViewEvent.class, new SendToViewListener());
         Controller.addEventListener(ReadLogEvent.class, new ReadLogListener());
         Controller.addEventListener(TriggerReadFileEvent.class, new TriggerReadFileListener());
-
         Controller.addEventListener(NewClientEvent.class, new NewClienteListener());
         Controller.addEventListener(ServerEvent.class, new ServerListener());
+        Controller.addEventListener(SendDatatoClientEvent.class, new SendDataToClientListener());
+
+
     }
 
 
@@ -50,8 +58,8 @@ public class Control {
             DateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");
             String year = formatoFecha.format(fechaActual).replace("/", "");
 
-            String location = "W:\\ADRArbitrageXSGOIB\\log\\";
-            //String location = "src\\resources\\log\\AdrArbitrageIB\\";
+            //String location = "W:\\ADRArbitrageXSGOIB\\log\\";
+            String location = "src\\main\\resources\\log\\AdrArbitrageIB\\";
             String mkd_dolar = "FIX.4.4-ALGOARBADR5-MDFHBLP.messages_";
             String mkd_nyse = "FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_";
             String mkd_local = "FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_";
