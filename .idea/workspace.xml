@@ -2,20 +2,119 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fa9366c-41cc-423f-8ef8-28ecdd61c819" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.body" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.body" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.header" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.header" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.seqnums" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.seqnums" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.session" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-LVSSG_ARB-LVARB.session" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-SERVER-CLIENTE.body" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-SERVER-CLIENTE.body" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-SERVER-CLIENTE.header" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-SERVER-CLIENTE.header" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-SERVER-CLIENTE.seqnums" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-SERVER-CLIENTE.seqnums" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/store/FIX.4.4-SERVER-CLIENTE.session" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/store/FIX.4.4-SERVER-CLIENTE.session" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/utils/Helper$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/utils/Helper$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/server/NewClienteListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/server/SendDataToClientListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/event/SendDatatoClientEvent.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/data/SendToViewListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/server/ServerListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-ADRARBXBOG-AMGTOBVC.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-ADRARBXBOG-AMGTOBVC.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-ADRARBXBOG-AMGTOBVC.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-ADRARBXBOG-AMGTOBVC.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXTSE/FIX.4.4-ADRARB_XTSE_TOBVC-AMGTOBVC.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXTSE/FIX.4.4-ADRARB_XTSE_TOBVC-AMGTOBVC.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-ALGOARBADR4-MDFHBLP.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-ALGOARBADR4-MDFHBLP.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-ALGOARBADR4-MDFHBLP.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-ALGOARBADR4-MDFHBLP.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageIB/FIX.4.4-ALGOARBADR5-MDFHBLP.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageIB/FIX.4.4-ALGOARBADR5-MDFHBLP.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageIB/FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageIB/FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-ARBv8_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-ARBv8_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-ARBv8_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-ARBv8_EQUITY_NYS_BCS-MAMA_NYSE.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageIB/FIX.4.4-ARDARB_XSGO_IB-AMGTOBCS.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageIB/FIX.4.4-ARDARB_XSGO_IB-AMGTOBCS.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXTSE/FIX.4.4-BOGCURNCY-LVMDG.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXTSE/FIX.4.4-BOGCURNCY-LVMDG.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageIB/FIX.4.4-LVBSG-ADR_ARBITRAGE_IB_XNYS.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageIB/FIX.4.4-LVBSG-ADR_ARBITRAGE_IB_XNYS.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-LVBSG-CL02.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-LVBSG-CL02.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-LVBSG-CL02.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-LVBSG-CL02.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXTSE/FIX.4.4-LVBSG-CL04.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXTSE/FIX.4.4-LVBSG-CL04.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-LVBSG-FROMADRXBOG_XNYSE_BETA.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-LVBSG-FROMADRXBOG_XNYSE_BETA.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-LVBSG-FROMADRXBOG_XNYSE_BETA.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-LVBSG-FROMADRXBOG_XNYSE_BETA.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-LVDEVELOP8-MKDATAFHBCS2.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-LVDEVELOP8-MKDATAFHBCS2.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-LVDEVELOP8-MKDATAFHBCS2.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-LVDEVELOP8-MKDATAFHBCS2.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-LVMDG-BLODPENNA5.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-LVMDG-BLODPENNA5.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-LVMDG-BLODPENNA5.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-LVMDG-BLODPENNA5.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXTSE/FIX.4.4-LVMDG-BLODPENNA6.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXTSE/FIX.4.4-LVMDG-BLODPENNA6.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXTSE/FIX.4.4-LVMDG-BLODPENNA7.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXTSE/FIX.4.4-LVMDG-BLODPENNA7.messages_20150521.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.event.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.event.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.events_20150529.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.events_20150529.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.messages.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.messages.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.messages_20150529.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/Quickfix/log/FIX.4.4-LVSSG_ARB-LVARB.messages_20150529.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageIB/FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageIB/FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_20150607.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-STOPLOSSBEC-LVMDG.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-STOPLOSSBEC-LVMDG.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXBOG/FIX.4.4-STOPLOSSBEC-LVMDG.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXBOG/FIX.4.4-STOPLOSSBEC-LVMDG.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-adrbcs-to_xsgo.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-adrbcs-to_xsgo.messages_20150519.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log/AdrArbitrageXPUS/FIX.4.4-adrbcs-to_xsgo.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/log/AdrArbitrageXPUS/FIX.4.4-adrbcs-to_xsgo.messages_20150520.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/FIX44.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/FIX44.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/SellSide.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/SellSide.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/server/SendDataToClientListener.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/event/SendDatatoClientEvent.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/sessionFile.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/sessionFile.ini" />
       <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\NewClienteListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\ReadLogListener.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\SendToViewListener.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\ServerListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\StringToFixMessageListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\TriggerReadFileListener.class" afterPath="" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\NewClienteListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/server/NewClienteListener.java" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\ReadLogListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/data/ReadLogListener.java" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\SendToViewListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/data/SendToViewListener.java" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\ServerListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/server/ServerListener.java" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\StringToFixMessageListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/data/StringToFixMessageListener.java" />
       <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\src\main\java\com\larrainvial\logviwer\listener\TriggerReadFileListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/listener/data/TriggerReadFileListener.java" />
+      <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\ReadLogListener.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/data/ReadLogListener.class" />
+      <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\StringToFixMessageListener.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/data/StringToFixMessageListener.class" />
+      <change type="MOVED" beforePath="C:\Workspace\LogviwerServer\target\classes\com\larrainvial\logviwer\listener\TriggerReadFileListener.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/listener/data/TriggerReadFileListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/Algo$1.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/Algo$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/Algo.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/Algo.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/utils/Control.class" afterPath="$PROJECT_DIR$/target/classes/com/larrainvial/logviwer/utils/Control.class" />
@@ -68,8 +167,8 @@
       <file leaf-file-name="Algo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/Algo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.500846" vertical-offset="4233" max-vertical-offset="5899">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="42" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.11505922" vertical-offset="4233" max-vertical-offset="5899">
+              <caret line="319" column="5" selection-start-line="319" selection-start-column="5" selection-end-line="319" selection-end-column="5" />
               <folding>
                 <element signature="e#1696#1713#0" expanded="true" />
                 <element signature="e#1787#1804#0" expanded="true" />
@@ -865,12 +964,12 @@
       <updated>1433518424324</updated>
       <workItem from="1433518427518" duration="16908000" />
       <workItem from="1433719442776" duration="6196000" />
-      <workItem from="1433725801323" duration="6030000" />
+      <workItem from="1433725801323" duration="6366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29134000" />
+    <option name="totallyTimeSpent" value="29470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
@@ -898,7 +997,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34724006" sideWeight="0.5079681" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30054054" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30054054" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1292,8 +1391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/larrainvial/logviwer/Algo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.500846" vertical-offset="4233" max-vertical-offset="5899">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="42" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.11505922" vertical-offset="4233" max-vertical-offset="5899">
+          <caret line="319" column="5" selection-start-line="319" selection-start-column="5" selection-end-line="319" selection-end-column="5" />
           <folding>
             <element signature="e#1696#1713#0" expanded="true" />
             <element signature="e#1787#1804#0" expanded="true" />
