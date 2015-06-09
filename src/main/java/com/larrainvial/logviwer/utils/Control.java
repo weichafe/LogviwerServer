@@ -46,12 +46,12 @@ public class Control {
 
             Algo algo = new Algo();
 
-            algo.setNameAlgo("ADRArbitrage XSGO");
-            algo.setMkd_dolar("MKD_DOLAR");
-            algo.setMkd_adr("MKD_NYSE");
-            algo.setMkd_local("MKD_XSGO");
-            algo.setRouting_adr("ROUTING_ADR");
-            algo.setRouting_local("ROUTING_LOCAL");
+            algo.strategyDataVO.nameAlgo = "ADRArbitrage XSGO";
+            algo.strategyDataVO.mkd_dolar = "MKD_DOLAR";
+            algo.strategyDataVO.mkd_adr = "MKD_NYSE";
+            algo.strategyDataVO.mkd_local = "MKD_XSGO";
+            algo.strategyDataVO.routing_adr = "ROUTING_ADR";
+            algo.strategyDataVO.routing_local = "ROUTING_LOCAL";
 
             Date fechaActual = new Date();
 
@@ -67,15 +67,15 @@ public class Control {
             String routing_nyse = "FIX.4.4-LVBSG-ADR_ARBITRAGE_IB_XNYS.messages_";
             String log = ".log";
 
-            algo.setFile_mkd_dolar(new File(location + mkd_dolar + year + log));
-            algo.setFile_mkd_local(new File(location + mkd_local + year + log));
-            algo.setFile_mkd_adr(new File(location + mkd_nyse + year + log));
-            algo.setFile_routing_local(new File(location + routing_local + year + log));
-            algo.setFile_routing_adr(new File(location + routing_nyse + year + log));
+            algo.file_mkd_dolar = new File(location + mkd_dolar + year + log);
+            algo.file_mkd_local = new File(location + mkd_local + year + log);
+            algo.file_mkd_adr = new File(location + mkd_nyse + year + log);
+            algo.file_routing_local = new File(location + routing_local + year + log);
+            algo.file_routing_adr = new File(location + routing_nyse + year + log);
 
             algo.fileReader();
 
-            Repository.strategy.put(algo.getNameAlgo(), algo);
+            Repository.strategy.put(algo.strategyDataVO.nameAlgo, algo);
 
             algo.iniziale();
 

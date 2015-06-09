@@ -1,10 +1,11 @@
 package com.larrainvial.logviwer.listener.server;
 
 import com.larrainvial.logviwer.event.ServerEvent;
-import com.larrainvial.logviwer.model.ModelMarketData;
 import com.larrainvial.trading.emp.Event;
 import com.larrainvial.trading.emp.Listener;
-import java.io.*;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.Socket;
 
 public class ServerListener implements Listener {
@@ -32,8 +33,8 @@ public class ServerListener implements Listener {
 
             if (accion.equals("hola")) {
                 System.out.println("El cliente con idSesion " + this.idSessio + " saluda");
-
             }
+
 
         } catch (Exception e){
             e.printStackTrace();

@@ -1,14 +1,13 @@
 package com.larrainvial.report;
 
 
-import com.larrainvial.report.po.reportPO;
+import com.larrainvial.report.vo.ReportVO;
 
-import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class Repository {
 
 
-    public static Map<String, reportPO> reportHashmap = Collections.synchronizedMap(new LinkedHashMap<String, reportPO>());
+    public static LinkedHashMap<Date, ReportVO> reportHashmap = new LinkedHashMap<Date, ReportVO>();
 }

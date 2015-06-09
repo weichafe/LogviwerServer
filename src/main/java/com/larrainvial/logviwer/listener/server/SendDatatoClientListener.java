@@ -8,8 +8,6 @@ import com.larrainvial.trading.emp.Listener;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
-import java.io.Serializable;
-
 
 
 public class SendDataToClientListener implements Listener {
@@ -24,8 +22,18 @@ public class SendDataToClientListener implements Listener {
             Socket socket = ev.socket;
 
             ObjectOutputStream ooStream = new ObjectOutputStream(socket.getOutputStream());
-            ooStream.writeObject(Repository.strategy);
 
+            for (Map.Entry<String, Algo> e: Repository.strategy.entrySet()) {
+
+                try {
+
+                    ooStream.writeObject( Repository.strategy.get(e.getKey()).strategyDataVO);
+                    System.out.println("mensaje enviado a cliente");
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
