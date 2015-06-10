@@ -118,6 +118,7 @@ public class Helper {
                                     routingVO.sellQtyDolar != null &&
                                     routingVO.closePxDolar != null) {
 
+                                System.out.println(contador++ + " / " + Repository.reportHashmapRouting.size());
                                 break;
                             }
 
@@ -136,6 +137,7 @@ public class Helper {
         }
 
         Repository.reportHashmapMkdDolar.clear();
+        contador = 1;
 
         for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
 
@@ -183,6 +185,7 @@ public class Helper {
                                     routingVO.sellQtyMKDLocal != null &&
                                     routingVO.closePxMKDLocal != null) {
 
+                                System.out.println(contador++ + " / " + Repository.reportHashmapRouting.size());
                                 break;
                             }
 
@@ -201,6 +204,7 @@ public class Helper {
         }
 
         Repository.reportHashmapMkdLocal.clear();
+        contador = 1;
 
         for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
 
