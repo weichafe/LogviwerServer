@@ -22,7 +22,7 @@ public class Helper {
     private static boolean exception = true;
     private static boolean alertBloolean = true;
 
-    public static synchronized void exception(Exception e) {
+    public static synchronized void exception(final Exception e) {
 
         try {
 
@@ -84,7 +84,7 @@ public class Helper {
         }
     }
 
-    public static synchronized void  alert(String headerText, String contentText1){
+    public static synchronized void  alert(final String headerText, final String contentText1){
 
         if(!alertBloolean) return;
 

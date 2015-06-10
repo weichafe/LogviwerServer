@@ -1,7 +1,5 @@
 package com.larrainvial.report;
 
-import com.larrainvial.report.vo.ReportVO;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.Serializable;
@@ -22,7 +20,5 @@ public class Algo implements Serializable {
     public FileInputStream inputStream_mkd_adr;
     public FileInputStream inputStream_routing_local;
     public FileInputStream inputStream_routing_adr;
-
-    public ReportVO reportVO = new ReportVO();
 
 }

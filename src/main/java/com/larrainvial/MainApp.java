@@ -1,5 +1,6 @@
 package com.larrainvial;
 
+import com.larrainvial.logviwer.utils.Control;
 import com.larrainvial.report.MainAppReport;
 
 public class MainApp {
@@ -12,8 +13,9 @@ public class MainApp {
             //Repository.serverSocket = new ServerSocket(10578);
             //Control.initialize();
             //Control.initializaAll();
+            MainAppReport.report();
             //com.larrainvial.sellside.MainApp.sellside();
-             MainAppReport.report();
+
 
 
         } catch (Exception e){

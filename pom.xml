@@ -7,9 +7,6 @@
     <groupId>com.larrainvial.etrading</groupId>
     <artifactId>LogviwerServer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <modules>
-        <module>LogviwerServer</module>
-    </modules>
 
     <name>LogviwerServer</name>
     <packaging>pom</packaging>
