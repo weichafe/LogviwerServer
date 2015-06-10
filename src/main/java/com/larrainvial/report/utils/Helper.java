@@ -99,14 +99,15 @@ public class Helper {
 
                         try {
 
-                            if(routingVO.symbolDolar == null) routingVO.symbolDolar = marketDataVO.symbol;
-                            if(routingVO.messageByTypeDolar == null) routingVO.messageByTypeDolar = marketDataVO.messageByType;
-                            if(routingVO.timeDolar == null) routingVO.timeDolar = marketDataVO.time;
-                            if(routingVO.buyPxDolar == null) routingVO.buyPxDolar = marketDataVO.buyPx;
-                            if(routingVO.buyQtyDolar == null) routingVO.buyQtyDolar = marketDataVO.buyQty;
-                            if(routingVO.sellPxDolar == null) routingVO.sellPxDolar = marketDataVO.sellPx;
-                            if(routingVO.sellQtyDolar == null) routingVO.sellQtyDolar = marketDataVO.sellQty;
-                            if(routingVO.closePxDolar == null) routingVO.closePxDolar = marketDataVO.closePx;
+                            if (routingVO.symbolDolar == null) routingVO.symbolDolar = marketDataVO.symbol;
+                            if (routingVO.messageByTypeDolar == null)
+                                routingVO.messageByTypeDolar = marketDataVO.messageByType;
+                            if (routingVO.timeDolar == null) routingVO.timeDolar = marketDataVO.time;
+                            if (routingVO.buyPxDolar == null) routingVO.buyPxDolar = marketDataVO.buyPx;
+                            if (routingVO.buyQtyDolar == null) routingVO.buyQtyDolar = marketDataVO.buyQty;
+                            if (routingVO.sellPxDolar == null) routingVO.sellPxDolar = marketDataVO.sellPx;
+                            if (routingVO.sellQtyDolar == null) routingVO.sellQtyDolar = marketDataVO.sellQty;
+                            if (routingVO.closePxDolar == null) routingVO.closePxDolar = marketDataVO.closePx;
 
                             if (routingVO.symbolDolar != null &&
                                     routingVO.messageByTypeDolar != null &&
@@ -115,9 +116,12 @@ public class Helper {
                                     routingVO.buyQtyDolar != null &&
                                     routingVO.sellPxDolar != null &&
                                     routingVO.sellQtyDolar != null &&
-                                    routingVO.closePxDolar != null) break;
+                                    routingVO.closePxDolar != null) {
 
-                        } catch (Exception ex){
+                                break;
+                            }
+
+                        } catch (Exception ex) {
                             ex.printStackTrace();
                         }
 
@@ -128,6 +132,14 @@ public class Helper {
 
                 }
             }
+
+        }
+
+        Repository.reportHashmapMkdDolar.clear();
+
+        for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
+
+            RoutingVO routingVO = Repository.reportHashmapRouting.get(e.getKey());
 
             if (Repository.reportHashmapMkdLocal.containsKey(e.getKey())) {
 
@@ -153,7 +165,8 @@ public class Helper {
                         try {
 
                             if (routingVO.symbolMKDLocal == null) routingVO.symbolMKDLocal = marketDataVO.symbol;
-                            if (routingVO.messageByTypeMKDLocal == null) routingVO.messageByTypeMKDLocal = marketDataVO.messageByType;
+                            if (routingVO.messageByTypeMKDLocal == null)
+                                routingVO.messageByTypeMKDLocal = marketDataVO.messageByType;
                             if (routingVO.timeMKDLocal == null) routingVO.timeMKDLocal = marketDataVO.time;
                             if (routingVO.buyPxMKDLocal == null) routingVO.buyPxMKDLocal = marketDataVO.buyPx;
                             if (routingVO.buyQtyMKDLocal == null) routingVO.buyQtyMKDLocal = marketDataVO.buyQty;
@@ -168,7 +181,10 @@ public class Helper {
                                     routingVO.buyQtyMKDLocal != null &&
                                     routingVO.sellPxMKDLocal != null &&
                                     routingVO.sellQtyMKDLocal != null &&
-                                    routingVO.closePxMKDLocal != null) break;
+                                    routingVO.closePxMKDLocal != null) {
+
+                                break;
+                            }
 
                         } catch (Exception ex) {
                             ex.printStackTrace();
@@ -181,6 +197,14 @@ public class Helper {
 
                 }
             }
+
+        }
+
+        Repository.reportHashmapMkdLocal.clear();
+
+        for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
+
+            RoutingVO routingVO = Repository.reportHashmapRouting.get(e.getKey());
 
             if(Repository.reportHashmapMkdADR.containsKey(e.getKey())){
 
