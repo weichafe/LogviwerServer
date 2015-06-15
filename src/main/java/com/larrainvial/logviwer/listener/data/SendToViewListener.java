@@ -3,8 +3,10 @@ package com.larrainvial.logviwer.listener.data;
 import com.larrainvial.logviwer.Algo;
 import com.larrainvial.logviwer.Repository;
 import com.larrainvial.logviwer.event.SendToViewEvent;
+import com.larrainvial.logviwer.event.senddata.*;
 import com.larrainvial.logviwer.model.ModelPositions;
 import com.larrainvial.logviwer.utils.Helper;
+import com.larrainvial.trading.emp.Controller;
 import com.larrainvial.trading.emp.Event;
 import com.larrainvial.trading.emp.Listener;
 
@@ -15,7 +17,7 @@ import java.util.Map;
 public class SendToViewListener implements Listener {
 
     @Override
-    public void eventOccurred(Event event) {
+    public synchronized void eventOccurred(Event event) {
 
         SendToViewEvent ev = (SendToViewEvent) event;
 
@@ -24,53 +26,25 @@ public class SendToViewListener implements Listener {
             Algo algo = Repository.strategy.get(ev.nameAlgo);
 
             if (ev.typeMarket.equals(algo.strategyDataVO.mkd_dolar)) {
-
-                algo.strategyDataVO.dolarMasterListArray.add(ev.modelMarketData);
-
-                for (Map.Entry<String, Socket> e: Repository.cliente.entrySet()) {
-
-                    try {
-
-                        Socket socket = Repository.cliente.get(e.getKey());
-                        ObjectOutputStream ooStream = new ObjectOutputStream(socket.getOutputStream());
-                        //ooStream.writeObject(ev.modelMarketData);
-
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-
-            }else if (ev.typeMarket.equals(algo.strategyDataVO.mkd_adr)) {
-                algo.strategyDataVO.mkdAdrMasterListArray.add(ev.modelMarketData);
-
-            }else if (ev.typeMarket.equals(algo.strategyDataVO.mkd_local)) {
-                algo.strategyDataVO.mkdLocalMasterListArray.add(ev.modelMarketData);
-
-            }else if (ev.typeMarket.equals(algo.strategyDataVO.routing_adr)) {
-                algo.strategyDataVO.routingAdrMasterListArray.add(ev.modelRoutingData);
-
-            }else if (ev.typeMarket.equals(algo.strategyDataVO.routing_local)) {
-                algo.strategyDataVO.routingLocalMasterListArray.add(ev.modelRoutingData);
+                Controller.dispatchEvent(new SendDolarEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelMarketData));
             }
 
-            if(!ev.marketData) return;
+            if (ev.typeMarket.equals(algo.strategyDataVO.mkd_adr)) {
+                Controller.dispatchEvent(new SendMkdAdrEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelMarketData));
+            }
 
-            for (Map.Entry<String, ModelPositions> e: algo.strategyDataVO.positionsMasterListHash.entrySet()) {
+            if (ev.typeMarket.equals(algo.strategyDataVO.mkd_local)) {
+                Controller.dispatchEvent(new SendMkdLocalEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelMarketData));
+            }
 
-                try {
+            if (ev.typeMarket.equals(algo.strategyDataVO.routing_adr)) {
+                Controller.dispatchEvent(new SendRoutingAdrEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelRoutingData));
+                Controller.dispatchEvent(new SendPositionEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelRoutingData));
+            }
 
-                    if (algo.strategyDataVO.positionsMasterListHash.containsKey(e.getKey())) {
-
-                        if (e.getKey().equals(Helper.adrToLocal(ev.modelRoutingData.symbol))) {
-
-                            algo.strategyDataVO.positionsMasterListArray.remove(e.getKey());
-                            algo.strategyDataVO.positionsMasterListArray.add(algo.strategyDataVO.positionsMasterListHash.get(e.getKey()));
-                        }
-                    }
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+            if (ev.typeMarket.equals(algo.strategyDataVO.routing_local)) {
+                Controller.dispatchEvent(new SendRoutingLocalEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelRoutingData));
+                Controller.dispatchEvent(new SendPositionEvent(this, ev.nameAlgo, ev.typeMarket, ev.modelRoutingData));
             }
 
 

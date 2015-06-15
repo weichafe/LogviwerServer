@@ -3,13 +3,16 @@ package com.larrainvial.logviwer.utils;
 import com.larrainvial.logviwer.Algo;
 import com.larrainvial.logviwer.Repository;
 import com.larrainvial.logviwer.event.*;
-import com.larrainvial.logviwer.listener.data.ReadLogListener;
+import com.larrainvial.logviwer.event.readlog.*;
+import com.larrainvial.logviwer.event.senddata.*;
+import com.larrainvial.logviwer.listener.data.readlog.*;
 import com.larrainvial.logviwer.listener.data.SendToViewListener;
 import com.larrainvial.logviwer.listener.data.StringToFixMessageListener;
-import com.larrainvial.logviwer.listener.data.TriggerReadFileListener;
+import com.larrainvial.logviwer.listener.data.send.*;
 import com.larrainvial.logviwer.listener.server.NewClienteListener;
 import com.larrainvial.logviwer.listener.server.SendDataToClientListener;
 import com.larrainvial.logviwer.listener.server.ServerListener;
+import com.larrainvial.logviwer.listener.server.ValidateClienteListener;
 import com.larrainvial.trading.emp.Controller;
 
 import java.io.File;
@@ -23,11 +26,25 @@ public class Control {
 
         Controller.addEventListener(StringToFixMessageEvent.class, new StringToFixMessageListener());
         Controller.addEventListener(SendToViewEvent.class, new SendToViewListener());
-        Controller.addEventListener(ReadLogEvent.class, new ReadLogListener());
-        Controller.addEventListener(TriggerReadFileEvent.class, new TriggerReadFileListener());
         Controller.addEventListener(NewClientEvent.class, new NewClienteListener());
         Controller.addEventListener(ServerEvent.class, new ServerListener());
         Controller.addEventListener(SendDatatoClientEvent.class, new SendDataToClientListener());
+
+        Controller.addEventListener(ReadLogMarketDataADREvent.class, new ReadLogMarketDataADRListener());
+        Controller.addEventListener(ReadLogMarketDataDolarEvent.class, new ReadLogMarketDataDolarListener());
+        Controller.addEventListener(ReadLogMarketDataLocalEvent.class, new ReadLogMarketDataLocalListener());
+        Controller.addEventListener(ReadLogRoutingADREvent.class, new ReadLogRoutingADRListener());
+        Controller.addEventListener(ReadLogRoutingLocalEvent.class, new ReadLogRoutingLocalListener());
+
+        Controller.addEventListener(ValidateClienteEvent.class, new ValidateClienteListener());
+
+
+        Controller.addEventListener(SendDolarEvent.class, new SendDolarListener());
+        Controller.addEventListener(SendMkdAdrEvent.class, new SendMkdAdrListener());
+        Controller.addEventListener(SendMkdLocalEvent.class, new SendMkdLocalListener());
+        Controller.addEventListener(SendRoutingAdrEvent.class, new SendRoutingAdrListener());
+        Controller.addEventListener(SendRoutingLocalEvent.class, new SendRoutingLocalListener());
+        Controller.addEventListener(SendPositionEvent.class, new SendPositionListener());
 
 
     }
@@ -60,7 +77,7 @@ public class Control {
 
             //String location = "W:\\ADRArbitrageXSGOIB\\log\\";
             String location = "src\\main\\resources\\log\\AdrArbitrageIB\\";
-            String mkd_dolar = "FIX.4.4-ALGOARBADR5-MDFHBLP.messages_";
+            String mkd_dolar = "FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_";
             String mkd_nyse = "FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_";
             String mkd_local = "FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_";
             String routing_local = "FIX.4.4-ARDARB_XSGO_IB-AMGTOBCS.messages_";

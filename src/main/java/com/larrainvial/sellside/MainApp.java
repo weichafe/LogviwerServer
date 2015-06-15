@@ -12,7 +12,7 @@ public class MainApp {
 
         try {
 
-            Repository.buySide  = new PropertiesFile("src/resources/SellSide.properties");
+            Repository.buySide  = new PropertiesFile("src/main/resources/SellSide.properties");
 
             Repository.qFixFile = Repository.buySide.getPropertiesString("qFixFile");
 

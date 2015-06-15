@@ -19,20 +19,29 @@ public class SendDataToClientListener implements Listener {
 
         try {
 
-            Socket socket = ev.socket;
+            Socket socket = ev.clientVO.socket;
 
-            ObjectOutputStream ooStream = new ObjectOutputStream(socket.getOutputStream());
 
-            for (Map.Entry<String, Algo> e: Repository.strategy.entrySet()) {
+            synchronized (Repository.strategy) {
 
-                try {
+                for (Map.Entry<String, Algo> e : Repository.strategy.entrySet()) {
 
-                    ooStream.writeObject( Repository.strategy.get(e.getKey()).strategyDataVO);
-                    System.out.println("mensaje enviado a cliente");
+                    try {
 
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                        ObjectOutputStream ooStream = new ObjectOutputStream(socket.getOutputStream());
+
+                        synchronized (Repository.strategy.get(e.getKey()).strategyDataVO) {
+                            System.out.println("entra para el envio de datos");
+                            ooStream.writeObject(Repository.strategy.get(e.getKey()).strategyDataVO);
+                            ooStream.flush();
+                            System.out.println("mensaje enviado a cliente");
+                        }
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
+
             }
 
         } catch (Exception e) {

@@ -1,14 +1,15 @@
 package com.larrainvial.logviwer.event;
 
+import com.larrainvial.logviwer.vo.ClientVO;
 import com.larrainvial.trading.emp.Event;
 import java.net.Socket;
 
 public class SendDatatoClientEvent extends Event {
 
-    public Socket socket;
+    public ClientVO clientVO;
 
-    public SendDatatoClientEvent(Object source, Socket socket) {
+    public SendDatatoClientEvent(Object source, ClientVO clientVO) {
         super(source);
-        this.socket = socket;
+        this.clientVO = clientVO;
     }
 }

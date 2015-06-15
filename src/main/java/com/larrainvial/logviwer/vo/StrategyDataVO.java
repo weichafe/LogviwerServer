@@ -4,8 +4,7 @@ import com.larrainvial.logviwer.model.ModelMarketData;
 import com.larrainvial.logviwer.model.ModelPositions;
 import com.larrainvial.logviwer.model.ModelRoutingData;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class StrategyDataVO implements Serializable {
 
@@ -25,5 +24,6 @@ public class StrategyDataVO implements Serializable {
     public ArrayList<ModelRoutingData> routingLocalMasterListArray = new ArrayList<ModelRoutingData>();
     public ArrayList<ModelRoutingData> routingBlotterMasterListArray = new ArrayList<ModelRoutingData>();
     public ArrayList<ModelPositions> positionsMasterListArray = new ArrayList<ModelPositions>();
-    public LinkedHashMap<String,ModelPositions> positionsMasterListHash = new LinkedHashMap<String, ModelPositions>();
+    public Map<String,ModelPositions> positionsMasterListHash = Collections.synchronizedMap(new LinkedHashMap<String, ModelPositions>());
+
 }
