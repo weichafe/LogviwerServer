@@ -29,6 +29,7 @@ public class MainApp {
             SimpleDateFormat formato = new SimpleDateFormat("yyyyMMdd");
             Repository.date = formato.format(new Date());
 
+
             /*
             Repository.executionWorkOrderClOrdIDFile = new FileRepository(Repository.date + "executionWorkOrder", pathFiles);
 
@@ -36,6 +37,7 @@ public class MainApp {
                 Repository.executionWorkOrder = (HashMap<String, Orders>) Repository.executionWorkOrderClOrdIDFile.readFile();
             }
             */
+
 
             StartFixApp();
             Control.initialize();

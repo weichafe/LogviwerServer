@@ -1,5 +1,7 @@
 package com.larrainvial.report;
 
+import com.larrainvial.report.utils.Helper;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.Serializable;
@@ -23,7 +25,7 @@ public class Algo implements Serializable {
     public boolean mkdAdr = false;
     public boolean routingLocal = false;
     public boolean routingAdr = false;
-    public boolean printer = false;
+
 
     public FileInputStream inputStream_mkd_dolar;
     public FileInputStream inputStream_mkd_local;
@@ -35,13 +37,16 @@ public class Algo implements Serializable {
 
         try {
 
-            String location = "src\\main\\resources\\log\\AdrArbitrageIB\\";
+            String location = "C:\\workspaceGit\\LogviwerServer\\src\\main\\resources\\log\\AdrArbitrageXTSE\\";
             String mkd_dolar = "FIX.4.4-LVMDG-BLODPENNA7.messages_";
-            String mkd_nyse = "FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_";
-            String mkd_local = "FIX.4.4-MKDATACL2-MKDATAFHBCS2.messages_";
-            String routing_local = "FIX.4.4-ARDARB_XSGO_IB-AMGTOBCS.messages_";
-            String routing_nyse = "FIX.4.4-LVBSG-ADR_ARBITRAGE_IB_XNYS.messages_";
+            String mkd_nyse = "FIX.4.4-LVMDG-BLODPENNA6.messages_";
+            String mkd_local = "FIX.4.4-BOGCURNCY-LVMDG.messages_";
+            String routing_local = "FIX.4.4-ADRARB_XTSE_TOBVC-AMGTOBVC.messages_";
+            String routing_nyse = "FIX.4.4-LVBSG-CL04.messages_";
             String log = ".log";
+
+            Repository.timeFirs = Helper.parseTimestamp(Helper.getDatefromLog("20150601-13:00:32.483: 8=FIX")).getTimeInMillis();;
+            Repository.timeLast = Helper.parseTimestamp(Helper.getDatefromLog("20150601-19:54:49.311: 8=FIX")).getTimeInMillis();;
 
             Date fechaActual = new Date();
             DateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd");

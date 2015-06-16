@@ -3,12 +3,7 @@ package com.larrainvial.report;
 import com.larrainvial.report.event.*;
 import com.larrainvial.report.utils.Control;
 import com.larrainvial.report.utils.Helper;
-import com.larrainvial.report.vo.MarketDataVO;
-import com.larrainvial.report.vo.RoutingVO;
 import com.larrainvial.trading.emp.Controller;
-
-import java.io.FileInputStream;
-import java.util.Scanner;
 
 public class MainAppReport {
 
@@ -20,12 +15,11 @@ public class MainAppReport {
 
             Algo algo = new Algo();
 
-            String symbolRoutingLocal = "ENERSIS";
-            String symbolRoutingADR = "ENI";
+            String symbolRoutingLocal = "PREC";
+            String symbolRoutingADR = "PRE";
 
-            String symbolMarketLocal = "ENERSIS";
-            String symbolMarketADR = "ENI";
-
+            String symbolMarketLocal = "PREC";
+            String symbolMarketADR = "PRE CN EQUITY";
 
             Controller.dispatchEvent(new ReadMarketDataDolarEvent("", algo, ""));
             Controller.dispatchEvent(new ReadMarketDataAdrEvent("", algo, symbolMarketADR));
@@ -59,11 +53,6 @@ public class MainAppReport {
             e.printStackTrace();
 
         }
-    }
-
-    public static long getTime(String message) throws Exception {
-
-        return Helper.parseTimestamp(Helper.getDatefromLog(message)).getTimeInMillis();
     }
 
 }

@@ -23,12 +23,18 @@ public class ReadMarketDataAdrListener  implements Listener {
             while (dolar.hasNextLine()) {
 
                 String line = dolar.nextLine();
+                Long timer = getTime(line);
+
+                if(Repository.timeFirs > timer) continue;
+                if(Repository.timeLast < timer) break;
 
                 MarketDataVO marketDataVO = Helper.marketData(line, ev.filter);
 
                 if(marketDataVO == null) continue;
 
-                Repository.reportHashmapMkdADR.put(getTime(line), marketDataVO);
+                Repository.reportHashmapMkdADR.put(timer, marketDataVO);
+
+
             }
 
             ev.algo.mkdAdr = true;

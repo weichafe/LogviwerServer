@@ -8,6 +8,7 @@ import com.larrainvial.report.vo.ReporteVO;
 import com.larrainvial.report.vo.RoutingVO;
 import quickfix.field.MsgType;
 import quickfix.fix44.Message;
+
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -15,14 +16,20 @@ import java.util.*;
 
 public class Helper {
 
-
     public static void setValuesFromMKD(){
 
-        setMKDDolarCad();
+
+        setCadIndex();
         System.out.println("fin set dolar CAD");
 
         setMKDDolarCof();
         System.out.println("fin set dolar COF");
+
+        setMKDLocal();
+        System.out.println("fin set MKD local");
+
+        setMKDADR();
+        System.out.println("fin set MKD ADR");
 
         setMRoutingLocal();
         System.out.println("fin set Routing Local");
@@ -30,22 +37,44 @@ public class Helper {
         setMRoutingADR();
         System.out.println("fin set Routing ADR");
 
-        setMKDLocar();
-        System.out.println("fin set MKD local");
-
-        setMKDADR();
-        System.out.println("fin set MKD ADR");
-
         Repository.printer = true;
+
+    }
+
+    public static void setCadIndex(){
+
+
+        for (Map.Entry<Long, MarketDataVO> e: Repository.reportHashmapMkdDolarCad.entrySet()) {
+
+                ReporteVO reporteVO = new ReporteVO();
+                MarketDataVO marketDataVO = Repository.reportHashmapMkdDolarCad.get(e.getKey());
+
+                reporteVO.time = marketDataVO.time;
+                reporteVO.symbolDolarCAD = marketDataVO.symbol;
+                reporteVO.messageByTypeDolarCAD = marketDataVO.messageByType;
+                reporteVO.timeDolarCAD = marketDataVO.time;
+                reporteVO.buyPxDolarCAD = marketDataVO.buyPx;
+                reporteVO.buyQtyDolarCAD = marketDataVO.buyQty;
+                reporteVO.sellPxDolarCAD = marketDataVO.sellPx;
+                reporteVO.sellQtyDolarCAD = marketDataVO.sellQty;
+                reporteVO.closePxDolarCAD = marketDataVO.closePx;
+
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
+
+        }
+
+
+        Repository.reportHashmapMkdDolarCad.clear();
+
 
     }
 
     public static void setMKDADR(){
 
-        for (Map.Entry<Long, ReporteVO> e: Repository.reportHashmap.entrySet()) {
 
+        for (Map.Entry<Long, MarketDataVO> e: Repository.reportHashmapMkdADR.entrySet()) {
 
-            if(Repository.reportHashmapMkdADR.containsKey(e.getKey())){
+            if(Repository.reportHashmap.containsKey(e.getKey())){
 
                 MarketDataVO marketDataVO = Repository.reportHashmapMkdADR.get(e.getKey());
                 ReporteVO reporteVO = Repository.reportHashmap.get(e.getKey());
@@ -61,121 +90,71 @@ public class Helper {
 
             } else {
 
-
-                for (Long i = e.getKey(); i >= 0; i--) {
-
-                    if (Repository.reportHashmapMkdADR.containsKey(i)) {
-
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdADR.get(i);
-                        ReporteVO reporteVO = Repository.reportHashmap.get(i);
-
-                        try {
-
-                            if (reporteVO.symbolMKDAdr == null) reporteVO.symbolMKDAdr = marketDataVO.symbol;
-                            if (reporteVO.messageByTypeMKDAdr == null) reporteVO.messageByTypeMKDAdr = marketDataVO.messageByType;
-                            if (reporteVO.timeMKDAdr == null) reporteVO.timeMKDAdr = marketDataVO.time;
-                            if (reporteVO.buyPxMKDAdr == null) reporteVO.buyPxMKDAdr = marketDataVO.buyPx;
-                            if (reporteVO.buyQtyMKDAdr == null) reporteVO.buyQtyMKDAdr = marketDataVO.buyQty;
-                            if (reporteVO.sellPxMKDAdr == null) reporteVO.sellPxMKDAdr = marketDataVO.sellPx;
-                            if (reporteVO.sellQtyMKDAdr == null) reporteVO.sellQtyMKDAdr = marketDataVO.sellQty;
-                            if (reporteVO.closePxMKDAdr == null) reporteVO.closePxMKDAdr = marketDataVO.closePx;
-
-                            if (reporteVO.symbolMKDAdr != null &&
-                                    reporteVO.messageByTypeMKDAdr != null &&
-                                    reporteVO.timeMKDAdr != null &&
-                                    reporteVO.buyPxMKDAdr != null &&
-                                    reporteVO.buyQtyMKDAdr != null &&
-                                    reporteVO.sellPxMKDAdr != null &&
-                                    reporteVO.sellQtyMKDAdr != null &&
-                                    reporteVO.closePxMKDAdr != null) {
-
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
-            }
-
-
-        }
-
-
-    }
-
-    public static void setMKDLocar(){
-
-        for (Map.Entry<Long, ReporteVO> e: Repository.reportHashmap.entrySet()) {
-
-
-            if(Repository.reportHashmapMkdLocal.containsKey(e.getKey())){
-
-                MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(e.getKey());
-                ReporteVO reporteVO = Repository.reportHashmap.get(e.getKey());
+                MarketDataVO marketDataVO = Repository.reportHashmapMkdADR.get(e.getKey());
+                ReporteVO reporteVO = new ReporteVO();
 
                 reporteVO.symbolMKDAdr = marketDataVO.symbol;
                 reporteVO.messageByTypeMKDAdr = marketDataVO.messageByType;
                 reporteVO.timeMKDAdr = marketDataVO.time;
+                reporteVO.time = marketDataVO.time;
                 reporteVO.buyPxMKDAdr = marketDataVO.buyPx;
                 reporteVO.buyQtyMKDAdr = marketDataVO.buyQty;
                 reporteVO.sellPxMKDAdr = marketDataVO.sellPx;
                 reporteVO.sellQtyMKDAdr = marketDataVO.sellQty;
                 reporteVO.closePxMKDAdr = marketDataVO.closePx;
 
-            } else {
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
 
-
-                for (Long i = e.getKey(); i >= 0; i--) {
-
-                    if (Repository.reportHashmapMkdLocal.containsKey(i)) {
-
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(i);
-                        ReporteVO reporteVO = Repository.reportHashmap.get(i);
-
-                        try {
-
-                            if (reporteVO.symbolMKDAdr == null) reporteVO.symbolMKDAdr = marketDataVO.symbol;
-                            if (reporteVO.messageByTypeMKDAdr == null) reporteVO.messageByTypeMKDAdr = marketDataVO.messageByType;
-                            if (reporteVO.timeMKDAdr == null) reporteVO.timeMKDAdr = marketDataVO.time;
-                            if (reporteVO.buyPxMKDAdr == null) reporteVO.buyPxMKDAdr = marketDataVO.buyPx;
-                            if (reporteVO.buyQtyMKDAdr == null) reporteVO.buyQtyMKDAdr = marketDataVO.buyQty;
-                            if (reporteVO.sellPxMKDAdr == null) reporteVO.sellPxMKDAdr = marketDataVO.sellPx;
-                            if (reporteVO.sellQtyMKDAdr == null) reporteVO.sellQtyMKDAdr = marketDataVO.sellQty;
-                            if (reporteVO.closePxMKDAdr == null) reporteVO.closePxMKDAdr = marketDataVO.closePx;
-
-                            if (reporteVO.symbolMKDAdr != null &&
-                                    reporteVO.messageByTypeMKDAdr != null &&
-                                    reporteVO.timeMKDAdr != null &&
-                                    reporteVO.buyPxMKDAdr != null &&
-                                    reporteVO.buyQtyMKDAdr != null &&
-                                    reporteVO.sellPxMKDAdr != null &&
-                                    reporteVO.sellQtyMKDAdr != null &&
-                                    reporteVO.closePxMKDAdr != null) {
-
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
             }
 
 
         }
+
+        Repository.reportHashmapMkdADR.clear();
+
+    }
+
+
+    public static void setMKDLocal(){
+
+        for (Map.Entry<Long, MarketDataVO> e: Repository.reportHashmapMkdLocal.entrySet()) {
+
+            if(Repository.reportHashmap.containsKey(e.getKey())){
+
+                MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(e.getKey());
+                ReporteVO reporteVO = Repository.reportHashmap.get(e.getKey());
+
+                reporteVO.symbolMKDLocal = marketDataVO.symbol;
+                reporteVO.messageByTypeMKDLocal = marketDataVO.messageByType;
+                reporteVO.timeMKDLocal = marketDataVO.time;
+                reporteVO.buyPxMKDLocal = marketDataVO.buyPx;
+                reporteVO.buyQtyMKDLocal = marketDataVO.buyQty;
+                reporteVO.sellPxMKDLocal = marketDataVO.sellPx;
+                reporteVO.sellQtyMKDLocal = marketDataVO.sellQty;
+                reporteVO.closePxMKDLocal = marketDataVO.closePx;
+
+            } else {
+
+                MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(e.getKey());
+                ReporteVO reporteVO = new ReporteVO();
+
+                reporteVO.symbolMKDLocal = marketDataVO.symbol;
+                reporteVO.messageByTypeMKDLocal = marketDataVO.messageByType;
+                reporteVO.timeMKDLocal = marketDataVO.time;
+                reporteVO.time = marketDataVO.time;
+                reporteVO.buyPxMKDLocal = marketDataVO.buyPx;
+                reporteVO.buyQtyMKDLocal = marketDataVO.buyQty;
+                reporteVO.sellPxMKDLocal = marketDataVO.sellPx;
+                reporteVO.sellQtyMKDLocal = marketDataVO.sellQty;
+                reporteVO.closePxMKDLocal = marketDataVO.closePx;
+
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
+
+            }
+
+        }
+
+        Repository.reportHashmapMkdLocal.clear();
 
     }
 
@@ -183,6 +162,8 @@ public class Helper {
 
         FileWriter fichero = new FileWriter("c:/Reporte/prueba.csv");
         PrintWriter pw = new PrintWriter(fichero);
+
+        Map<Long, ReporteVO> reportHashmapSort = new TreeMap<Long, ReporteVO>(Repository.reportHashmap);
 
         pw.print("Time;");
 
@@ -195,6 +176,7 @@ public class Helper {
         pw.print("Last Px Local;");
         pw.print("Leaves Qty Local;");
 
+        pw.print("Type ADR;");
         pw.print("Price ADR;");
         pw.print("Order Qty ADR;");
         pw.print("Exec Type ADR;");
@@ -202,16 +184,12 @@ public class Helper {
         pw.print("Last Px ADR;");
         pw.print("Leaves Qty ADR;");
 
-        pw.print("Symbol Dolar CAD;");
         pw.print("Buy Px Dolar CAD;");
         pw.print("Sell Px Dolar CAD;");
         pw.print("Close Px Dolar CAD;");
 
-        pw.print("TIMER COF;");
-        pw.print("Symbol Dolar COF;");
         pw.print("Close Px Dolar COF;");
 
-        pw.print("Symbol MKD Local;");
         pw.print("Buy Px MKD Local;");
         pw.print("Buy Qty MKD Local;");
         pw.print("Sell Px MKD Local;");
@@ -227,9 +205,9 @@ public class Helper {
 
 
 
-        for (Map.Entry<Long, ReporteVO> e: Repository.reportHashmap.entrySet()) {
+        for (Map.Entry<Long, ReporteVO> e: reportHashmapSort.entrySet()) {
 
-            ReporteVO reporteVO = Repository.reportHashmap.get(e.getKey());
+            ReporteVO reporteVO = reportHashmapSort.get(e.getKey());
 
             pw.print(reporteVO.time + ";" );
             pw.print(reporteVO.symbolRoutingLocal + ";" );
@@ -241,7 +219,7 @@ public class Helper {
             pw.print(reporteVO.lastPxRoutingLocal + ";" );
             pw.print(reporteVO.leavesQtyRoutingLocal + ";" );
 
-
+            pw.print(reporteVO.messageByTypeRoutingADR + ";" );
             pw.print(reporteVO.priceADR + ";" );
             pw.print(reporteVO.orderQtyADR + ";" );
             pw.print(reporteVO.execTypeADR + ";" );
@@ -249,24 +227,18 @@ public class Helper {
             pw.print(reporteVO.lastPxADR + ";" );
             pw.print(reporteVO.leavesQtyADR + ";" );
 
-
-            pw.print(reporteVO.symbolDolarCAD + ";" );
             pw.print(reporteVO.buyPxDolarCAD + ";" );
             pw.print(reporteVO.sellPxDolarCAD + ";" );
             pw.print(reporteVO.closePxDolarCAD + ";" );
 
-            pw.print(reporteVO.timeDolarCOF + ";" );
-            pw.print(reporteVO.symbolDolarCOF + ";" );
             pw.print(reporteVO.closePxDolarCOF + ";" );
 
-            pw.print(reporteVO.symbolMKDLocal + ";" );
             pw.print(reporteVO.buyPxMKDLocal + ";" );
             pw.print(reporteVO.buyQtyMKDLocal + ";" );
             pw.print(reporteVO.sellPxMKDLocal + ";" );
             pw.print(reporteVO.sellQtyMKDLocal + ";" );
             pw.print(reporteVO.closePxMKDLocal + ";" );
 
-            pw.print(reporteVO.symbolMKDAdr + ";" );
             pw.print(reporteVO.buyPxMKDAdr + ";" );
             pw.print(reporteVO.buyQtyMKDAdr + ";" );
             pw.print(reporteVO.sellPxMKDAdr + ";" );
@@ -275,15 +247,17 @@ public class Helper {
 
             pw.println();
 
-
         }
 
-
         fichero.close();
+        System.out.println("fin printer");
 
     }
-    
+
+
+
     public static void setMRoutingADR(){
+
 
         for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRoutingAdr.entrySet()) {
 
@@ -305,52 +279,35 @@ public class Helper {
 
             } else {
 
-                for (Long i = e.getKey(); i >= 0; i--) {
 
-                    if (Repository.reportHashmap.containsKey(i)) {
+                RoutingVO routingVO = Repository.reportHashmapRoutingAdr.get(e.getKey());
+                ReporteVO reporteVO = new ReporteVO();
 
-                        RoutingVO routingVO = Repository.reportHashmapRoutingAdr.get(e.getKey());
-                        ReporteVO reporteVO = Repository.reportHashmap.get(i);
+                reporteVO.symbolRoutingADR = routingVO.symbol;
+                reporteVO.messageByTypeRoutingADR  = routingVO.messageByType;
+                reporteVO.timeRoutingADR = routingVO.time;
+                reporteVO.time = routingVO.time;
 
-                        try {
+                reporteVO.priceADR  = routingVO.price;
+                reporteVO.orderQtyADR = routingVO.orderQty;
+                reporteVO.execTypeADR = routingVO.execType;
+                reporteVO.lastQtyADR = routingVO.lastQty;
+                reporteVO.lastPxADR = routingVO.lastPx;
+                reporteVO.leavesQtyADR = routingVO.leavesQty;
 
-                            if (reporteVO.symbolRoutingLocal == null) reporteVO.symbolRoutingLocal = routingVO.symbol;
-                            if (reporteVO.messageByTypeRoutingLocal == null) reporteVO.messageByTypeRoutingLocal = routingVO.messageByType;
-                            if (reporteVO.timeRoutingLocal == null) reporteVO.timeRoutingLocal = routingVO.time;
-                            if (reporteVO.priceRoutingLocal == null) reporteVO.priceRoutingLocal = routingVO.price;
-                            if (reporteVO.orderQtyRoutingLocal == null) reporteVO.orderQtyRoutingLocal = routingVO.orderQty;
-                            if (reporteVO.execTypeRoutingLocal == null) reporteVO.execTypeRoutingLocal = routingVO.execType;
-                            if (reporteVO.lastQtyRoutingLocal == null) reporteVO.lastQtyRoutingLocal = routingVO.lastQty;
-                            if (reporteVO.lastPxRoutingLocal == null) reporteVO.lastPxRoutingLocal = routingVO.lastPx;
-                            if (reporteVO.leavesQtyRoutingLocal == null) reporteVO.leavesQtyRoutingLocal = routingVO.leavesQty;
-
-                            if(reporteVO.symbolRoutingADR != null && reporteVO.messageByTypeRoutingADR != null
-                                    && reporteVO.timeRoutingLocal != null && reporteVO.priceADR != null
-                                    && reporteVO.orderQtyADR != null){
-                                break;
-                            }
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
 
 
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
             }
 
         }
 
-
+        Repository.reportHashmapRoutingAdr.clear();
 
     }
 
     public static void setMRoutingLocal(){
+
 
         for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRoutingLocal.entrySet()) {
 
@@ -372,76 +329,31 @@ public class Helper {
 
             } else {
 
-                for (Long i = e.getKey(); i >= 0; i--) {
+                RoutingVO routingVO = Repository.reportHashmapRoutingLocal.get(e.getKey());
+                ReporteVO reporteVO = new ReporteVO();
 
-                    if (Repository.reportHashmap.containsKey(i)) {
+                reporteVO.symbolRoutingLocal = routingVO.symbol;
+                reporteVO.messageByTypeRoutingLocal = routingVO.messageByType;
+                reporteVO.timeRoutingLocal = routingVO.time;
+                reporteVO.time = routingVO.time;
 
-                        RoutingVO routingVO = Repository.reportHashmapRoutingLocal.get(e.getKey());
-                        ReporteVO reporteVO = Repository.reportHashmap.get(i);
+                reporteVO.priceRoutingLocal = routingVO.price;
+                reporteVO.orderQtyRoutingLocal = routingVO.orderQty;
+                reporteVO.execTypeRoutingLocal = routingVO.execType;
+                reporteVO.lastQtyRoutingLocal = routingVO.lastQty;
+                reporteVO.lastPxRoutingLocal = routingVO.lastPx;
+                reporteVO.leavesQtyRoutingLocal = routingVO.leavesQty;
 
-                        try {
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
 
-                            if (reporteVO.symbolRoutingLocal == null) reporteVO.symbolRoutingLocal = routingVO.symbol;
-                            if (reporteVO.messageByTypeRoutingLocal == null) reporteVO.messageByTypeRoutingLocal = routingVO.messageByType;
-                            if (reporteVO.timeRoutingLocal == null) reporteVO.timeRoutingLocal = routingVO.time;
-                            if (reporteVO.priceRoutingLocal == null) reporteVO.priceRoutingLocal = routingVO.price;
-                            if (reporteVO.orderQtyRoutingLocal == null) reporteVO.orderQtyRoutingLocal = routingVO.orderQty;
-                            if (reporteVO.execTypeRoutingLocal == null) reporteVO.execTypeRoutingLocal = routingVO.execType;
-                            if (reporteVO.lastQtyRoutingLocal == null) reporteVO.lastQtyRoutingLocal = routingVO.lastQty;
-                            if (reporteVO.lastPxRoutingLocal == null) reporteVO.lastPxRoutingLocal = routingVO.lastPx;
-                            if (reporteVO.leavesQtyRoutingLocal == null) reporteVO.leavesQtyRoutingLocal = routingVO.leavesQty;
-
-                            if(reporteVO.symbolRoutingLocal != null && reporteVO.messageByTypeRoutingLocal != null
-                                    && reporteVO.timeRoutingLocal != null && reporteVO.priceRoutingLocal != null
-                                    && reporteVO.orderQtyRoutingLocal != null){
-                                break;
-                            }
-
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
             }
 
         }
 
-
-
-    }
-
-
-    public static void setMKDDolarCad(){
-
-        for (Map.Entry<Long, MarketDataVO> e: Repository.reportHashmapMkdDolarCad.entrySet()) {
-
-            ReporteVO reporteVO = new ReporteVO();
-            MarketDataVO marketDataVO = Repository.reportHashmapMkdDolarCad.get(e.getKey());
-
-            reporteVO.time = marketDataVO.time;
-            reporteVO.symbolDolarCAD = marketDataVO.symbol;
-            reporteVO.messageByTypeDolarCAD = marketDataVO.messageByType;
-            reporteVO.timeDolarCAD = marketDataVO.time;
-            reporteVO.buyPxDolarCAD = marketDataVO.buyPx;
-            reporteVO.buyQtyDolarCAD = marketDataVO.buyQty;
-            reporteVO.sellPxDolarCAD = marketDataVO.sellPx;
-            reporteVO.sellQtyDolarCAD = marketDataVO.sellQty;
-            reporteVO.closePxDolarCAD = marketDataVO.closePx;
-
-
-            Repository.reportHashmap.put(e.getKey(), reporteVO);
-
-        }
-
-        Repository.reportHashmapMkdDolarCad.clear();
+        Repository.reportHashmapRoutingLocal.clear();
 
     }
+
 
     public static void setMKDDolarCof(){
 
@@ -463,245 +375,28 @@ public class Helper {
 
             } else {
 
-                for (Long i = e.getKey(); i >= 0; i--) {
 
-                    if (Repository.reportHashmap.containsKey(i)) {
+                MarketDataVO marketDataVO = Repository.reportHashmapMkdDolarCof.get(e.getKey());
 
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdDolarCof.get(e.getKey());
-                        ReporteVO reporteVO = Repository.reportHashmap.get(i);
+                ReporteVO reporteVO = new ReporteVO();
+                reporteVO.symbolDolarCOF = marketDataVO.symbol;
+                reporteVO.messageByTypeDolarCOF = marketDataVO.messageByType;
+                reporteVO.timeDolarCOF = marketDataVO.time;
+                reporteVO.time = marketDataVO.time;
+                reporteVO.buyPxDolarCOF = marketDataVO.buyPx;
+                reporteVO.buyQtyDolarCOF = marketDataVO.buyQty;
+                reporteVO.sellPxDolarCOF = marketDataVO.sellPx;
+                reporteVO.sellQtyDolarCOF = marketDataVO.sellQty;
+                reporteVO.closePxDolarCOF = marketDataVO.closePx;
 
-                        try {
-
-                            if (reporteVO.symbolDolarCOF == null) reporteVO.symbolDolarCOF = marketDataVO.symbol;
-                            if (reporteVO.messageByTypeDolarCOF == null) reporteVO.messageByTypeDolarCOF = marketDataVO.messageByType;
-                            if (reporteVO.timeDolarCOF == null) reporteVO.timeDolarCOF = marketDataVO.time;
-                            if (reporteVO.closePxDolarCOF == null) reporteVO.closePxDolarCOF = marketDataVO.closePx;
-
-                            if (reporteVO.closePxDolarCOF != null) {
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
+                Repository.reportHashmap.put(e.getKey(), reporteVO);
             }
 
         }
+
+        Repository.reportHashmapMkdDolarCof.clear();
 
     }
-
-
-
-/*
-        for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
-
-            RoutingVO routingVO = Repository.reportHashmapRouting.get(e.getKey());
-
-
-            if (Repository.reportHashmapMkdDolar.containsKey(e.getKey())) {
-
-                MarketDataVO marketDataVO = Repository.reportHashmapMkdDolar.get(e.getKey());
-                routingVO.symbolDolar = marketDataVO.symbol;
-                routingVO.messageByTypeDolar = marketDataVO.messageByType;
-                routingVO.timeDolar = marketDataVO.time;
-                routingVO.buyPxDolar = marketDataVO.buyPx;
-                routingVO.buyQtyDolar = marketDataVO.buyQty;
-                routingVO.sellPxDolar = marketDataVO.sellPx;
-                routingVO.sellQtyDolar = marketDataVO.sellQty;
-                routingVO.closePxDolar = marketDataVO.closePx;
-
-            } else {
-
-                for (Long i = e.getKey(); i >= 0; i--) {
-
-                    if (Repository.reportHashmapMkdDolar.containsKey(i)) {
-
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdDolar.get(i);
-
-                        try {
-
-                            if (routingVO.symbolDolar == null) routingVO.symbolDolar = marketDataVO.symbol;
-                            if (routingVO.messageByTypeDolar == null)
-                                routingVO.messageByTypeDolar = marketDataVO.messageByType;
-                            if (routingVO.timeDolar == null) routingVO.timeDolar = marketDataVO.time;
-                            if (routingVO.buyPxDolar == null) routingVO.buyPxDolar = marketDataVO.buyPx;
-                            if (routingVO.buyQtyDolar == null) routingVO.buyQtyDolar = marketDataVO.buyQty;
-                            if (routingVO.sellPxDolar == null) routingVO.sellPxDolar = marketDataVO.sellPx;
-                            if (routingVO.sellQtyDolar == null) routingVO.sellQtyDolar = marketDataVO.sellQty;
-                            if (routingVO.closePxDolar == null) routingVO.closePxDolar = marketDataVO.closePx;
-
-                            if (routingVO.symbolDolar != null &&
-                                    routingVO.messageByTypeDolar != null &&
-                                    routingVO.timeDolar != null &&
-                                    routingVO.buyPxDolar != null &&
-                                    routingVO.buyQtyDolar != null &&
-                                    routingVO.sellPxDolar != null &&
-                                    routingVO.sellQtyDolar != null &&
-                                    routingVO.closePxDolar != null) {
-
-                                System.out.println(contador++ + " / " + Repository.reportHashmapRouting.size());
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
-            }
-
-        }
-
-        Repository.reportHashmapMkdDolar.clear();
-        contador = 1;
-
-        for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
-
-            RoutingVO routingVO = Repository.reportHashmapRouting.get(e.getKey());
-
-            if (Repository.reportHashmapMkdLocal.containsKey(e.getKey())) {
-
-                MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(e.getKey());
-
-                routingVO.symbolMKDLocal = marketDataVO.symbol;
-                routingVO.messageByTypeMKDLocal = marketDataVO.messageByType;
-                routingVO.timeMKDLocal = marketDataVO.time;
-                routingVO.buyPxMKDLocal = marketDataVO.buyPx;
-                routingVO.buyQtyMKDLocal = marketDataVO.buyQty;
-                routingVO.sellPxMKDLocal = marketDataVO.sellPx;
-                routingVO.sellQtyMKDLocal = marketDataVO.sellQty;
-                routingVO.closePxMKDLocal = marketDataVO.closePx;
-
-            } else {
-
-                for (Long i = e.getKey(); i >= 0; i--) {
-
-                    if (Repository.reportHashmapMkdLocal.containsKey(i)) {
-
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdLocal.get(i);
-
-                        try {
-
-                            if (routingVO.symbolMKDLocal == null) routingVO.symbolMKDLocal = marketDataVO.symbol;
-                            if (routingVO.messageByTypeMKDLocal == null)
-                                routingVO.messageByTypeMKDLocal = marketDataVO.messageByType;
-                            if (routingVO.timeMKDLocal == null) routingVO.timeMKDLocal = marketDataVO.time;
-                            if (routingVO.buyPxMKDLocal == null) routingVO.buyPxMKDLocal = marketDataVO.buyPx;
-                            if (routingVO.buyQtyMKDLocal == null) routingVO.buyQtyMKDLocal = marketDataVO.buyQty;
-                            if (routingVO.sellPxMKDLocal == null) routingVO.sellPxMKDLocal = marketDataVO.sellPx;
-                            if (routingVO.sellQtyMKDLocal == null) routingVO.sellQtyMKDLocal = marketDataVO.sellQty;
-                            if (routingVO.closePxMKDLocal == null) routingVO.closePxMKDLocal = marketDataVO.closePx;
-
-                            if (routingVO.symbolMKDLocal != null &&
-                                    routingVO.messageByTypeMKDLocal != null &&
-                                    routingVO.timeMKDLocal != null &&
-                                    routingVO.buyPxMKDLocal != null &&
-                                    routingVO.buyQtyMKDLocal != null &&
-                                    routingVO.sellPxMKDLocal != null &&
-                                    routingVO.sellQtyMKDLocal != null &&
-                                    routingVO.closePxMKDLocal != null) {
-
-                                System.out.println(contador++ + " / " + Repository.reportHashmapRouting.size());
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
-            }
-
-        }
-
-        Repository.reportHashmapMkdLocal.clear();
-        contador = 1;
-
-        for (Map.Entry<Long, RoutingVO> e: Repository.reportHashmapRouting.entrySet()) {
-
-            RoutingVO routingVO = Repository.reportHashmapRouting.get(e.getKey());
-
-            if(Repository.reportHashmapMkdADR.containsKey(e.getKey())){
-
-                MarketDataVO marketDataVO = Repository.reportHashmapMkdADR.get(e.getKey());
-
-                routingVO.symbolMKDAdr = marketDataVO.symbol;
-                routingVO.messageByTypeMKDAdr = marketDataVO.messageByType;
-                routingVO.timeMKDAdr = marketDataVO.time;
-                routingVO.buyPxMKDAdr = marketDataVO.buyPx;
-                routingVO.buyQtyMKDAdr = marketDataVO.buyQty;
-                routingVO.sellPxMKDAdr = marketDataVO.sellPx;
-                routingVO.sellQtyMKDAdr = marketDataVO.sellQty;
-                routingVO.closePxMKDAdr = marketDataVO.closePx;
-
-            } else {
-
-
-
-                for (Long i = e.getKey(); i >= 0; i--) {
-
-
-                    if (Repository.reportHashmapMkdADR.containsKey(i)) {
-
-                        MarketDataVO marketDataVO = Repository.reportHashmapMkdADR.get(i);
-
-                        try {
-
-                            if (routingVO.symbolMKDAdr == null) routingVO.symbolMKDAdr = marketDataVO.symbol;
-                            if (routingVO.messageByTypeMKDAdr == null) routingVO.messageByTypeMKDAdr = marketDataVO.messageByType;
-                            if (routingVO.timeMKDAdr == null) routingVO.timeMKDAdr = marketDataVO.time;
-                            if (routingVO.buyPxMKDAdr == null) routingVO.buyPxMKDAdr = marketDataVO.buyPx;
-                            if (routingVO.buyQtyMKDAdr == null) routingVO.buyQtyMKDAdr = marketDataVO.buyQty;
-                            if (routingVO.sellPxMKDAdr == null) routingVO.sellPxMKDAdr = marketDataVO.sellPx;
-                            if (routingVO.sellQtyMKDAdr == null) routingVO.sellQtyMKDAdr = marketDataVO.sellQty;
-                            if (routingVO.closePxMKDAdr == null) routingVO.closePxMKDAdr = marketDataVO.closePx;
-
-                            if (routingVO.symbolMKDAdr != null &&
-                                    routingVO.messageByTypeMKDAdr != null &&
-                                    routingVO.timeMKDAdr != null &&
-                                    routingVO.buyPxMKDAdr != null &&
-                                    routingVO.buyQtyMKDAdr != null &&
-                                    routingVO.sellPxMKDAdr != null &&
-                                    routingVO.sellQtyMKDAdr != null &&
-                                    routingVO.closePxMKDAdr != null) {
-
-
-                                System.out.println(contador++ + " / " + Repository.reportHashmapRouting.size());
-                                break;
-                            }
-
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else {
-
-                        continue;
-                    }
-
-                }
-            }
-
-
-        }
-*/
 
 
     public static RoutingVO routing(String message, String filter){
@@ -825,8 +520,8 @@ public class Helper {
             }
 
         } catch (Exception e) {
-           //e.printStackTrace();
-            //System.out.println(message);
+             e.printStackTrace();
+             System.out.println(message);
         }
 
         return marketDataVO;
@@ -981,8 +676,19 @@ public class Helper {
         if(!entries.isEmpty()) orderedFixMessage.put(attributes.get(String.valueOf(FixConstants.NoMDEntries.getId())), entries);
         return orderedFixMessage;
 
+    }
 
 
+    public static Long getFirst(LinkedHashMap<Long, RoutingVO> reportHashmapRouting){
+
+        final Map<Long, RoutingVO> orderMap = reportHashmapRouting;
+
+        final Set<Map.Entry<Long, RoutingVO>> mapValues = orderMap.entrySet();
+        final int maplength = mapValues.size();
+        final Map.Entry<Long,String>[] test = new Map.Entry[maplength];
+        mapValues.toArray(test);
+
+        return Long.valueOf(test[0].getKey());
 
     }
 

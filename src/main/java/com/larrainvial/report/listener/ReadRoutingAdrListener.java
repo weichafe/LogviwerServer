@@ -23,12 +23,16 @@ public class ReadRoutingAdrListener  implements Listener {
             while (routinAdr.hasNextLine()) {
 
                 String line = routinAdr.nextLine();
+                Long timer = getTime(line);
+
+                if(Repository.timeFirs > timer) continue;
+                if(Repository.timeLast < timer) break;
 
                 RoutingVO routingVO = Helper.routing(line, ev.filter);
 
                 if(routingVO == null) continue;
 
-                Repository.reportHashmapRoutingAdr.put(getTime(line), routingVO);
+                Repository.reportHashmapRoutingAdr.put(timer, routingVO);
 
             }
 

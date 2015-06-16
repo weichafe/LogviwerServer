@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.util.Map;
 
 
-public class SendDataToClientListener implements Listener {
+public class SendDatatoClientListener implements Listener {
 
     @Override
     public void eventOccurred(Event event) {

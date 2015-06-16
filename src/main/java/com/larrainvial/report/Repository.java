@@ -10,6 +10,7 @@ public class Repository {
 
 
     public static LinkedHashMap<Long, ReporteVO> reportHashmap = new LinkedHashMap<Long, ReporteVO>();
+    public static LinkedHashMap<Long, ReporteVO> reportHashmapAUX = new LinkedHashMap<Long, ReporteVO>();
 
     public static LinkedHashMap<Long, RoutingVO> reportHashmapRoutingLocal = new LinkedHashMap<Long, RoutingVO>();
     public static LinkedHashMap<Long, RoutingVO> reportHashmapRoutingAdr = new LinkedHashMap<Long, RoutingVO>();
@@ -21,5 +22,9 @@ public class Repository {
     public static LinkedHashMap<Long, MarketDataVO> reportHashmapMkdLocal = new LinkedHashMap<Long, MarketDataVO>();
 
     public static boolean printer = false;
+
+    public static Long timeFirs;
+    public static Long timeLast;
+
 
 }

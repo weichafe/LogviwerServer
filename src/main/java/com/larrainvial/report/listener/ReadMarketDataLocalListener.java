@@ -23,11 +23,16 @@ public class ReadMarketDataLocalListener  implements Listener {
             while (mkdLocal.hasNextLine()) {
 
                 String line = mkdLocal.nextLine();
+                Long timer = getTime(line);
+
+                if(Repository.timeFirs > timer) continue;
+                if(Repository.timeLast < timer) break;
+
                 MarketDataVO marketDataVO = Helper.marketData(line, ev.filter);
 
                 if(marketDataVO == null) continue;
 
-                Repository.reportHashmapMkdLocal.put(getTime(line), marketDataVO);
+                Repository.reportHashmapMkdLocal.put(timer, marketDataVO);
 
             }
 

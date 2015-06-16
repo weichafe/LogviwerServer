@@ -5,12 +5,12 @@ import com.larrainvial.logviwer.Repository;
 import com.larrainvial.logviwer.event.*;
 import com.larrainvial.logviwer.event.readlog.*;
 import com.larrainvial.logviwer.event.senddata.*;
-import com.larrainvial.logviwer.listener.data.readlog.*;
 import com.larrainvial.logviwer.listener.data.SendToViewListener;
 import com.larrainvial.logviwer.listener.data.StringToFixMessageListener;
+import com.larrainvial.logviwer.listener.data.readlog.*;
 import com.larrainvial.logviwer.listener.data.send.*;
 import com.larrainvial.logviwer.listener.server.NewClienteListener;
-import com.larrainvial.logviwer.listener.server.SendDataToClientListener;
+import com.larrainvial.logviwer.listener.server.SendDatatoClientListener;
 import com.larrainvial.logviwer.listener.server.ServerListener;
 import com.larrainvial.logviwer.listener.server.ValidateClienteListener;
 import com.larrainvial.trading.emp.Controller;
@@ -28,7 +28,7 @@ public class Control {
         Controller.addEventListener(SendToViewEvent.class, new SendToViewListener());
         Controller.addEventListener(NewClientEvent.class, new NewClienteListener());
         Controller.addEventListener(ServerEvent.class, new ServerListener());
-        Controller.addEventListener(SendDatatoClientEvent.class, new SendDataToClientListener());
+        Controller.addEventListener(SendDatatoClientEvent.class, new SendDatatoClientListener());
 
         Controller.addEventListener(ReadLogMarketDataADREvent.class, new ReadLogMarketDataADRListener());
         Controller.addEventListener(ReadLogMarketDataDolarEvent.class, new ReadLogMarketDataDolarListener());

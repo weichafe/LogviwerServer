@@ -24,12 +24,16 @@ public class ReadRoutingLocalListener  implements Listener {
             while (routinLocal.hasNextLine()) {
 
                 String line = routinLocal.nextLine();
+                Long timer = getTime(line);
+
+                if(Repository.timeFirs > timer) continue;
+                if(Repository.timeLast < timer) break;
 
                 RoutingVO routingVO = Helper.routing(line, ev.filter);
 
                 if(routingVO == null) continue;
 
-                Repository.reportHashmapRoutingLocal.put(getTime(line), routingVO);
+                Repository.reportHashmapRoutingLocal.put(timer, routingVO);
 
             }
 
