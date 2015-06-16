@@ -14,13 +14,14 @@ public class MainApp {
 
         try {
 
-
+            /*
             Repository.serverSocket = new ServerSocket(10578);
             Control.initialize();
             Control.initializaAll();
             Controller.dispatchEvent(new NewClientEvent(""));
+            */
 
-            //MainAppReport.report();
+            MainAppReport.report();
             //com.larrainvial.sellside.MainApp.sellside();
 
 
