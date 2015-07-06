@@ -18,9 +18,7 @@ public class NewClienteListener implements Listener {
 
     private Socket socket;
     private ServerSocket serverSocket;
-    private DataOutputStream server;
-    private DataInputStream cliente;
-    PropertiesFile users;
+    private PropertiesFile users;
 
     @Override
     public void eventOccurred(Event event){
