@@ -1200,7 +1200,9 @@
 		</message>
 
 		<message name="MarketDataIncrementalRefresh" msgcat="app" msgtype="X">
+			<field name="SecondaryOrderID" required="N"/>
 			<field name="MDReqID" required="N"/>
+			<field name="SecondaryExecID" required="N"/>
 			<component name="Instrument" required="Y"/>
 
 			<group name="NoUnderlyings" required="N">
@@ -1230,6 +1232,7 @@
 				<field name="MDEntrySize" required="N"/>
 				<field name="MDEntryDate" required="N"/>
 				<field name="Symbol" required="N"/>
+				<field name="SecondaryOrderID" required="N"/>
 				<field name="MDEntryTime" required="N"/>
 				<field name="TickDirection" required="N"/>
 				<field name="MDMkt" required="N"/>
@@ -3173,13 +3176,13 @@
 			</group>
 		</message>
 		<message name="AllocationReportAck" msgcat="app" msgtype="AT">
-			<field name="AllocReportID" required="Y"/>
-			<field name="AllocID" required="Y"/>
+			<field name="AllocReportID" required="N"/>
+			<field name="AllocID" required="N"/>
 			<component name="Parties" required="N"/>
 			<field name="SecondaryAllocID" required="N"/>
 			<field name="TradeDate" required="N"/>
-			<field name="TransactTime" required="Y"/>
-			<field name="AllocStatus" required="Y"/>
+			<field name="TransactTime" required="N"/>
+			<field name="AllocStatus" required="N"/>
 			<field name="AllocRejCode" required="N"/>
 			<field name="AllocReportType" required="N"/>
 			<field name="AllocIntermedReqType" required="N"/>

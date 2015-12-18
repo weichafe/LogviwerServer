@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<strategys>
+
+	
+	<strategy>
+
+        <nameAlgo>ADR Arbitrage XSGO IB</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\ADRArbitrageXSGOIB\\log\\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR5-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>FIX.4.4-ARBv3_EQUITY_NYS_BCS-MAMA_NYSE.messages_</mkd_nyse>
+        <mkd_local>FIX.4.4-ADR_ARBITRAGE_XSGO_IB-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-ARDARB_XSGO_IB-AMGTOBCS.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVBSG-ADR_ARBITRAGE_IB_XNYS.messages_</routing_nyse>
+
+        <booleanDolar>true</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>true</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+
+    </strategy>
+	
+	<!--strategy>
+
+        <nameAlgo>ADR Arbitrage XSGO XP</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\ADRArbitrageBetaXPUS\\connections\\logs\\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR4-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>FIX.4.4-ARBv8_EQUITY_NYS_BCS-MAMA_NYSE.messages_</mkd_nyse>
+        <mkd_local>FIX.4.4-ADR_ARBITRAGE_XSGO_XPUS-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-adrbcs-to_xsgo.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVBSG-CL02.messages_</routing_nyse>
+
+        <booleanDolar>true</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>true</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+
+
+    <strategy>
+
+        <nameAlgo>ETF Arbitrage IB</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\ETFArbitrageIB\connections\\logs\\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR2-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_</mkd_nyse>
+        <mkd_local>FIX.4.4-ETF_ECH_IB-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-lvalg_mktmkr-omg.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVBSG-CL06.messages_</routing_nyse>
+
+        <booleanDolar>true</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+	
+	<strategy>
+
+        <nameAlgo>ETF Arbitrage IB II</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\ETFArbitrageXSGOIB2\\connection\\logs\\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR7-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>""</mkd_nyse>
+        <mkd_local>FIX.4.4-ETF_IB2-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-etfib2-to_xsgo.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVBSG-ETF_IB2.messages_</routing_nyse>
+
+        <booleanDolar>true</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+
+    <strategy>
+
+        <nameAlgo>Market Maker IPSA</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+
+        <location>W:\\CFMITNIPSA\\connection\\log\\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR2-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_</mkd_nyse>
+        <mkd_local>FIX.4.4-CFMITN_IPSA-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-LVARBNYSCSAES-LVSSG_ARB.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVBSG-CL06.messages_</routing_nyse>
+
+        <booleanDolar>false</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>false</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+
+	<strategy>
+
+        <nameAlgo>Market Maker BCS</nameAlgo> 
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\MarketMakerBcs\\</location>
+        <mkd_dolar>""</mkd_dolar>
+        <mkd_nyse>""</mkd_nyse>
+        <mkd_local>FIX.4.4-MARKET_MAKER_BCS-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-BS_MM_001-SS_MM_001.messages_</routing_local>
+        <routing_nyse>""</routing_nyse>
+
+        <booleanDolar>false</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>false</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+
+    <strategy>
+
+        <nameAlgo>LV BLOTTER</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\LVOMS\\connection\\log\\</location>
+        <mkd_dolar>""</mkd_dolar>
+        <mkd_nyse>""</mkd_nyse>
+        <mkd_local>""</mkd_local>
+        <routing_local>FIX.4.4-BLOTTER-LVBSG.messages_</routing_local>
+        <routing_nyse>FIX.4.4-LVARB-to_omg_mth.messages_</routing_nyse>
+
+        <booleanDolar>false</booleanDolar>
+        <booleanMLocal>false</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+	
+	    <strategy>
+
+        <nameAlgo>MMBEC I</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\MarketMakerBEC\\connection\\log\</location>
+        <mkd_dolar>FIX.4.4-ALGOARBADR2-MDFHBLP.messages_</mkd_dolar>
+        <mkd_nyse>FIX.4.4-ARBv7_EQUITY_NYS_BCS-MAMA_NYSE.messages_</mkd_nyse>
+        <mkd_local>FIX.4.4-BTLARRADATA3-BCSGATEWAY.messages_</mkd_local>
+        <routing_local>FIX.4.4-lvarbadr-to_omg_tb.messages_</routing_local>
+        <routing_nyse>FIX.4.4-BS_ADR_001-SS_ADR_001.messages_</routing_nyse>
+
+        <booleanDolar>false</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy>
+	
+	<strategy>
+
+        <nameAlgo>MMBEC II</nameAlgo>
+        <mkdDolar>MKD_DOLAR</mkdDolar>
+        <mkdLocal>MKD_XSGO</mkdLocal>
+        <mkdAdr>MKD_NYSE</mkdAdr>
+        <routingLocal>ROUTING_LOCAL</routingLocal>
+        <routingAdr>ROUTING_ADR</routingAdr>
+        <time>1</time>
+
+        <location>W:\\MarketMakerBecII\\connections\\log\\</location>
+        <mkd_dolar>""</mkd_dolar>
+        <mkd_nyse>""</mkd_nyse>
+        <mkd_local>FIX.4.4-MARKET_MAKER_BEC_II-LVFHALGO.messages_</mkd_local>
+        <routing_local>FIX.4.4-MARKET_MAKER_BEC_BCS-TCM.messages_</routing_local>
+        <routing_nyse>FIX.4.4-MARKET_MAKER_BEC_BEC-TCM.messages_</routing_nyse>
+
+        <booleanDolar>false</booleanDolar>
+        <booleanMLocal>true</booleanMLocal>
+        <booleanMAdr>false</booleanMAdr>
+        <booleanRLocal>true</booleanRLocal>
+        <booleanRAdr>true</booleanRAdr>
+		
+		<sshValidator>false</sshValidator>
+		<sshServer>catedral.larrainvial.com</sshServer>
+		<sshUser>usrlv_etrading</sshUser>
+		<sshPass>79.etlv.31</sshPass>
+
+    </strategy-->
+	
+
+</strategys>
